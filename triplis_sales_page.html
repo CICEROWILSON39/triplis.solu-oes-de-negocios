@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TRIPLIS - Soluções de Negócios</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #fff;
+            background: linear-gradient(135deg, #1a0a2e 0%, #2d1b4e 50%, #1a0a2e 100%);
+        }
+
+        .header {
+            background: linear-gradient(135deg, #2d1b4e 0%, #1a0a2e 100%);
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+            box-shadow: 0 4px 30px rgba(213, 63, 255, 0.3);
+        }
+
+        .header h1 {
+            font-size: 4.5rem;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 8px;
+            color: #ffffff;
+            font-weight: 900;
+            animation: glow 3s ease-in-out infinite;
+        }
+
+        .header h1 {
+            font-size: 4.5rem;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 8px;
+            color: #ffffff;
+            font-weight: 900;
+            animation: glow 3s ease-in-out infinite;
+        }
+
+        @keyframes glow {
+            0%, 100% { 
+                text-shadow: 0 0 20px rgba(213, 63, 255, 0.5),
+                             0 0 40px rgba(213, 63, 255, 0.3);
+            }
+            50% { 
+                text-shadow: 0 0 30px rgba(213, 63, 255, 0.8),
+                             0 0 60px rgba(213, 63, 255, 0.5);
+            }
+        }
+
+        .header p {
+            font-size: 1.6rem;
+            color: #d53fff;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .intro {
+            background: linear-gradient(135deg, #2d1b4e 0%, #3d2b6e 100%);
+            padding: 3.5rem;
+            margin: 3rem 0;
+            border-radius: 25px;
+            box-shadow: 0 15px 60px rgba(213, 63, 255, 0.3);
+            text-align: center;
+            border: 2px solid rgba(213, 63, 255, 0.4);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .intro::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(213, 63, 255, 0.15), transparent);
+            animation: shine 4s infinite;
+        }
+
+        @keyframes shine {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+
+        .intro h2 {
+            color: #ffffff;
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            font-weight: 900;
+            position: relative;
+            z-index: 1;
+        }
+
+        .intro p {
+            font-size: 1.3rem;
+            color: rgba(255, 255, 255, 0.9);
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.9;
+            position: relative;
+            z-index: 1;
+        }
+
+        .products {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
+            margin: 4rem 0;
+        }
+
+        .product-card {
+            background: linear-gradient(135deg, #2d1b4e 0%, #3d2b6e 100%);
+            border-radius: 30px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            border: 2px solid rgba(213, 63, 255, 0.3);
+            position: relative;
+        }
+
+        .product-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(213, 63, 255, 0.1) 0%, transparent 70%);
+            animation: rotate 20s linear infinite;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .product-card:hover::before {
+            opacity: 1;
+        }
+
+        .product-card:hover {
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: 0 30px 80px rgba(213, 63, 255, 0.5);
+            border-color: #d53fff;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .product-header {
+            padding: 3rem 2rem;
+            background: linear-gradient(135deg, #d53fff 0%, #a020f0 100%);
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-header h3 {
+            font-size: 2.4rem;
+            margin-bottom: 0.8rem;
+            position: relative;
+            z-index: 1;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .product-header p {
+            font-size: 1.3rem;
+            opacity: 0.95;
+            position: relative;
+            z-index: 1;
+            font-weight: 600;
+        }
+
+        .product-body {
+            padding: 2.5rem;
+            background: rgba(45, 27, 78, 0.95);
+            position: relative;
+            z-index: 1;
+        }
+
+        .product-body ul {
+            list-style: none;
+            margin: 2rem 0;
+        }
+
+        .product-body ul li {
+            padding: 1.2rem 0;
+            border-bottom: 1px solid rgba(213, 63, 255, 0.2);
+            position: relative;
+            padding-left: 45px;
+            color: rgba(255, 255, 255, 0.95);
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+        }
+
+        .product-body ul li:hover {
+            padding-left: 50px;
+            color: #d53fff;
+            border-bottom-color: #d53fff;
+        }
+
+        .product-body ul li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #d53fff;
+            font-weight: bold;
+            font-size: 1.8rem;
+        }
+
+        .price {
+            text-align: center;
+            margin: 2.5rem 0;
+            padding: 2.5rem;
+            background: rgba(213, 63, 255, 0.1);
+            border-radius: 25px;
+            border: 2px solid rgba(213, 63, 255, 0.3);
+        }
+
+        .price .old-price {
+            text-decoration: line-through;
+            color: rgba(255, 255, 255, 0.4);
+            font-size: 1.5rem;
+        }
+
+        .price .new-price {
+            color: #d53fff;
+            font-size: 4rem;
+            font-weight: 900;
+            margin: 1rem 0;
+            text-shadow: 0 0 40px rgba(213, 63, 255, 0.6);
+        }
+
+        .price .installment {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        .btn {
+            display: block;
+            width: 100%;
+            padding: 2rem;
+            background: linear-gradient(135deg, #d53fff 0%, #a020f0 100%);
+            color: #ffffff;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.5rem;
+            font-weight: 900;
+            transition: all 0.4s ease;
+            border: none;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            box-shadow: 0 15px 40px rgba(213, 63, 255, 0.5);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: width 0.6s ease, height 0.6s ease;
+        }
+
+        .btn:hover::before {
+            width: 400px;
+            height: 400px;
+        }
+
+        .btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 20px 60px rgba(213, 63, 255, 0.8);
+            background: linear-gradient(135deg, #a020f0 0%, #d53fff 100%);
+        }
+
+        .garantia {
+            background: linear-gradient(135deg, #d53fff 0%, #a020f0 100%);
+            color: white;
+            padding: 4rem;
+            margin: 4rem 0;
+            border-radius: 30px;
+            text-align: center;
+            box-shadow: 0 20px 60px rgba(213, 63, 255, 0.5);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .garantia h2 {
+            font-size: 3.2rem;
+            margin-bottom: 1.5rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            color: #ffffff;
+        }
+
+        .garantia p {
+            font-size: 1.4rem;
+            max-width: 750px;
+            margin: 0 auto;
+            line-height: 2;
+        }
+
+        .bonus {
+            background: linear-gradient(135deg, #2d1b4e 0%, #3d2b6e 100%);
+            padding: 4rem;
+            margin: 4rem 0;
+            border-radius: 30px;
+            box-shadow: 0 15px 60px rgba(0,0,0,0.5);
+            border: 2px solid rgba(213, 63, 255, 0.4);
+        }
+
+        .bonus h2 {
+            text-align: center;
+            color: #ffffff;
+            font-size: 3.2rem;
+            margin-bottom: 3rem;
+            font-weight: 900;
+            text-transform: uppercase;
+        }
+
+        .bonus-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .bonus-item {
+            background: linear-gradient(135deg, #3d2b6e 0%, #2d1b4e 100%);
+            color: white;
+            padding: 2.5rem;
+            border-radius: 25px;
+            text-align: center;
+            transition: all 0.4s ease;
+            border: 2px solid rgba(213, 63, 255, 0.3);
+        }
+
+        .bonus-item:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 25px 60px rgba(213, 63, 255, 0.5);
+            border-color: #d53fff;
+        }
+
+        .bonus-item h3 {
+            margin-bottom: 1.2rem;
+            font-size: 1.8rem;
+            color: #d53fff;
+            font-weight: 900;
+        }
+
+        .bonus-item p {
+            font-size: 1.1rem;
+            line-height: 1.7;
+        }
+
+        .footer {
+            background: #1a0a2e;
+            color: rgba(255, 255, 255, 0.8);
+            text-align: center;
+            padding: 2.5rem;
+            margin-top: 4rem;
+            border-top: 2px solid rgba(213, 63, 255, 0.4);
+        }
+
+        .urgency {
+            background: linear-gradient(135deg, #d53fff 0%, #a020f0 100%);
+            color: #ffffff;
+            padding: 1.8rem;
+            text-align: center;
+            font-size: 1.5rem;
+            font-weight: 900;
+            animation: pulse 2s infinite;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            box-shadow: 0 5px 30px rgba(213, 63, 255, 0.6);
+        }
+
+        @keyframes pulse {
+            0%, 100% { 
+                opacity: 1;
+                transform: scale(1);
+            }
+            50% { 
+                opacity: 0.95;
+                transform: scale(1.01);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header {
+                padding: 2rem 0;
+            }
+
+            .header h1 {
+                font-size: 2rem;
+                letter-spacing: 3px;
+            }
+
+            .header p {
+                font-size: 0.9rem;
+                letter-spacing: 1px;
+            }
+            
+            .urgency {
+                font-size: 0.9rem;
+                padding: 1rem;
+                letter-spacing: 0;
+            }
+
+            .container {
+                padding: 0.5rem;
+            }
+
+            .intro {
+                padding: 2rem 1.5rem;
+                margin: 1.5rem 0;
+            }
+
+            .intro h2 {
+                font-size: 1.5rem;
+                margin-bottom: 1rem;
+            }
+
+            .intro p {
+                font-size: 1rem;
+                line-height: 1.6;
+            }
+
+            .products {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+                margin: 2rem 0;
+            }
+
+            .product-header {
+                padding: 2rem 1.5rem;
+            }
+
+            .product-header h3 {
+                font-size: 1.6rem;
+                letter-spacing: 1px;
+            }
+
+            .product-header p {
+                font-size: 1rem;
+            }
+
+            .product-body {
+                padding: 1.5rem;
+            }
+
+            .product-body ul li {
+                font-size: 0.95rem;
+                padding: 0.8rem 0;
+                padding-left: 35px;
+            }
+
+            .product-body ul li:before {
+                font-size: 1.4rem;
+            }
+
+            .price {
+                padding: 1.5rem;
+                margin: 1.5rem 0;
+            }
+
+            .price .old-price {
+                font-size: 1.1rem;
+            }
+
+            .price .new-price {
+                font-size: 2.5rem;
+            }
+
+            .price .installment {
+                font-size: 0.95rem;
+            }
+
+            .btn {
+                padding: 1.3rem;
+                font-size: 1.1rem;
+                letter-spacing: 1px;
+            }
+
+            .bonus {
+                padding: 2rem 1rem;
+                margin: 2rem 0;
+            }
+
+            .bonus h2 {
+                font-size: 1.6rem;
+                margin-bottom: 2rem;
+            }
+
+            .bonus-grid {
+                gap: 1.5rem;
+            }
+
+            .bonus-item {
+                padding: 1.5rem;
+            }
+
+            .bonus-item h3 {
+                font-size: 1.3rem;
+            }
+
+            .bonus-item p {
+                font-size: 0.95rem;
+            }
+
+            .garantia {
+                padding: 2rem 1.5rem;
+                margin: 2rem 0;
+            }
+
+            .garantia h2 {
+                font-size: 1.6rem;
+                margin-bottom: 1rem;
+            }
+
+            .garantia p {
+                font-size: 1rem;
+                line-height: 1.7;
+            }
+
+            .footer {
+                padding: 2rem 1rem;
+                font-size: 0.85rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header h1 {
+                font-size: 1.6rem;
+                letter-spacing: 2px;
+            }
+
+            .header p {
+                font-size: 0.8rem;
+            }
+
+            .intro h2 {
+                font-size: 1.3rem;
+            }
+
+            .product-header h3 {
+                font-size: 1.4rem;
+            }
+
+            .price .new-price {
+                font-size: 2rem;
+            }
+
+            .btn {
+                font-size: 1rem;
+                padding: 1.1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="urgency">
+        🔥 OFERTA LIMITADA! Garanta seu acesso com desconto especial hoje! 🔥
+    </div>
+
+    <header class="header">
+        <h1>TRIPLIS</h1>
+        <p>Soluções de Negócios Digitais</p>
+    </header>
+
+    <div class="container">
+        <div class="intro">
+            <h2>Transforme Seu Negócio Digital Hoje!</h2>
+            <p>Descubra as melhores soluções para impulsionar suas vendas online. Artes profissionais, ferramentas premium e templates exclusivos para você decolar no mundo digital!</p>
+        </div>
+
+        <div class="products">
+            <!-- Produto 1: Packs de Artes -->
+            <div class="product-card product1">
+                <div class="product-header">
+                    <h3>🎨 PACK DE ARTES</h3>
+                    <p>Super Heróis para Sublimação</p>
+                </div>
+                <div class="product-body">
+                    <ul>
+                        <li>+500 Artes de Super Heróis em Alta Resolução</li>
+                        <li>Prontas para Sublimação Total</li>
+                        <li>Formatos PNG e PSD Editáveis</li>
+                        <li>Marvel, DC e Personagens Populares</li>
+                        <li>Atualizações Mensais Gratuitas</li>
+                        <li>Suporte Técnico Incluído</li>
+                        <li>Licença Comercial Vitalícia</li>
+                    </ul>
+                    <div class="price">
+                        <div class="old-price">De R$ 297,00</div>
+                        <div class="new-price">R$ 97,00</div>
+                        <div class="installment">ou 12x de R$ 9,48</div>
+                    </div>
+                    <a href="#" class="btn">QUERO ESTE PACK!</a>
+                </div>
+            </div>
+
+            <!-- Produto 2: Elementor Pro -->
+            <div class="product-card product2">
+                <div class="product-header">
+                    <h3>🚀 ELEMENTOR PRO</h3>
+                    <p>Construtor de Sites Premium</p>
+                </div>
+                <div class="product-body">
+                    <ul>
+                        <li>Elementor Pro - Licença Original</li>
+                        <li>100+ Widgets Premium</li>
+                        <li>Theme Builder Completo</li>
+                        <li>WooCommerce Builder</li>
+                        <li>Pop-up Builder Avançado</li>
+                        <li>Atualizações Automáticas</li>
+                        <li>Suporte Oficial Elementor</li>
+                    </ul>
+                    <div class="price">
+                        <div class="old-price">De R$ 497,00</div>
+                        <div class="new-price">R$ 147,00</div>
+                        <div class="installment">ou 12x de R$ 14,35</div>
+                    </div>
+                    <a href="#" class="btn">GARANTIR ACESSO!</a>
+                </div>
+            </div>
+
+            <!-- Produto 3: Templates WordPress -->
+            <div class="product-card product3">
+                <div class="product-header">
+                    <h3>💎 TEMPLATES PREMIUM</h3>
+                    <p>WordPress + Envato Elements</p>
+                </div>
+                <div class="product-body">
+                    <ul>
+                        <li>200+ Templates WordPress Premium</li>
+                        <li>Acesso Envato Elements Completo</li>
+                        <li>Temas para Todos os Nichos</li>
+                        <li>Plugins Premium Inclusos</li>
+                        <li>Importação com 1 Clique</li>
+                        <li>100% Responsivos e Otimizados</li>
+                        <li>Documentação e Vídeos Tutorial</li>
+                    </ul>
+                    <div class="price">
+                        <div class="old-price">De R$ 697,00</div>
+                        <div class="new-price">R$ 197,00</div>
+                        <div class="installment">ou 12x de R$ 19,22</div>
+                    </div>
+                    <a href="#" class="btn">QUERO AGORA!</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="bonus">
+            <h2>🎁 BÔNUS EXCLUSIVOS</h2>
+            <div class="bonus-grid">
+                <div class="bonus-item">
+                    <h3>📚 E-book Marketing Digital</h3>
+                    <p>Guia completo para vender mais online</p>
+                </div>
+                <div class="bonus-item">
+                    <h3>🎥 Videoaulas Exclusivas</h3>
+                    <p>Aprenda a usar todas as ferramentas</p>
+                </div>
+                <div class="bonus-item">
+                    <h3>👥 Grupo VIP</h3>
+                    <p>Comunidade exclusiva de alunos</p>
+                </div>
+                <div class="bonus-item">
+                    <h3>🔧 Suporte Prioritário</h3>
+                    <p>Tire suas dúvidas direto com experts</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="garantia">
+            <h2>✅ GARANTIA DE 7 DIAS</h2>
+            <p>Você tem 7 dias para testar todos os produtos. Se não gostar por qualquer motivo, devolvemos 100% do seu dinheiro sem perguntas. O risco é todo nosso!</p>
+        </div>
+
+        <div class="intro">
+            <h2>Por Que Escolher a TRIPLIS?</h2>
+            <p style="margin-top: 1rem;">✓ Produtos digitais de alta qualidade<br>
+            ✓ Suporte técnico especializado<br>
+            ✓ Atualizações constantes<br>
+            ✓ Melhores preços do mercado<br>
+            ✓ Entrega imediata após pagamento<br>
+            ✓ Garantia de satisfação</p>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p>&copy; 2025 TRIPLIS - Soluções de Negócios Digitais</p>
+        <p>Todos os direitos reservados | CNPJ: XX.XXX.XXX/XXXX-XX</p>
+        <p style="margin-top: 1rem; font-size: 0.9rem;">Este site não faz parte do Facebook ou Facebook Inc. Além disso, este site NÃO é endossado pelo Facebook de nenhuma maneira. FACEBOOK é uma marca registrada da FACEBOOK, Inc.</p>
+    </footer>
+</body>
+</html>
