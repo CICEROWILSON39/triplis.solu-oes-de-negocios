@@ -1,5 +1,4 @@
 [triplis_html.html](https://github.com/user-attachments/files/23223519/triplis_html)
-<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
